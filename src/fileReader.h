@@ -5,6 +5,7 @@
 class CFileReader{
 public:
 	void fileReader(std::vector<std::string>& menulist);
+	void exchangeMenulist(std::vector<std::string>& menulist);
 };
 
 

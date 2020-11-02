@@ -12,7 +12,7 @@ void CFileWriter::fileWriter(string menu)
     ofstream ofs(fileName,ios::app);
     if (ofs)
     {
-    	 ofs << menu << endl;
+    	 ofs<<"\n" << menu;
     	 cout << fileName << "に書き込みました。" << endl;
     }else{
     cout << "ファイルが開けませんでした。" << endl;
