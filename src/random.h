@@ -5,7 +5,7 @@ class CRandom{
 
 public:
 	void InitRand();
-	 int random();
+	 int random(int size);
 };
 
 

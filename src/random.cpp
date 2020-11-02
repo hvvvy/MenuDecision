@@ -7,10 +7,11 @@ using namespace std;
 
 void CRandom::InitRand()
 {
+	//システム内の時間を基に初期化
 	srand((unsigned int)time(NULL));
 }
 
-int CRandom::random()
+int CRandom::random(int size)
 {
-	return rand() % 6 + 1;
+	return rand() % size;
 }
