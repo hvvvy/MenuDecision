@@ -22,7 +22,8 @@ int main()
 	vector<string> menulist;
 	char choice;
 	string menu;
-	bool judge = true;
+	//bool judge = true;
+	int judge = 1;
 
 	cout << "料理を追加するなら「1」を、メニューを決めるなら「5」を入力してください。";
 
@@ -72,7 +73,7 @@ int main()
 					cout <<"要素は"<< resltRand  <<endl<< "料理の数は"<<menulist.size();
 
 
-					cout <<"\nもう一度やり直すなら「5」を、アプリを終了するなら「9」を入力してください。"<< endl;
+					cout <<"\nもう一度抽選を行うなら「5」を、アプリを終了するなら「9」を入力してください。"<< endl;
 					break;
 				}
 				//9が選択された場合の処理
@@ -92,6 +93,8 @@ int main()
 		else
 		{
 			cout << "半角数字で入力してください。"<<endl;
+			//必要？
+			continue;
 		}
 	}
 		return 0;
