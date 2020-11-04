@@ -8,6 +8,7 @@
 #include "fileWriter.h"
 #include "fileReader.h"
 #include "random.h"
+#include "checkType.h"
 
 
 using namespace std;
@@ -18,12 +19,12 @@ int main()
 	CFileWriter fw;
 	CFileReader fr;
 	CRandom rd;
+	CCheckType ck;
 
 	vector<string> menulist;
-	char choice;
+	string choice;
 	string menu;
-	//bool judge = true;
-	int judge = 1;
+	bool judge = true;
 
 	cout << "料理を追加するなら「1」を、メニューを決めるなら「5」を入力してください。";
 
@@ -35,15 +36,15 @@ int main()
 		//入力を受け付ける
 		cin >> choice;
 		//半角数字チェック
-		if (choice >= '0' && choice <= '9')
+		if(ck.checkType(choice))
 		{
 			cout <<"「" << choice <<"」が選択されました。" << endl;
-			//型変換
-			int iChoice = choice;
+			//string型からint型へ変換
+			int iChoice = stoi(choice);
 			//数字でその後の処理を選択
 			switch(iChoice){
 				//1が選択された場合の処理
-				case 49:
+				case 1:
 				{
 					cout << "料理を登録してください。";
 					//入力した料理を受け付ける
@@ -60,7 +61,7 @@ int main()
 				break;
 				}
 				//5が選択された場合の処理
-				case 53:
+				case 5:
 				{
 					//乱数の初期値を設定
 					rd.InitRand();
@@ -77,7 +78,7 @@ int main()
 					break;
 				}
 				//9が選択された場合の処理
-				case 57:
+				case 9:
 				{
 					cout << "アプリを終了します。" << endl;
 					judge = false;
@@ -93,8 +94,6 @@ int main()
 		else
 		{
 			cout << "半角数字で入力してください。"<<endl;
-			//必要？
-			continue;
 		}
 	}
 		return 0;
