@@ -2,11 +2,11 @@
 #include <regex>
 #include <string>
 
-#include "checkType.h"
+#include "check.h"
 
 using namespace std;
 
-bool CCheckType::checkType(string schoice)
+bool CCheck::checkType(string schoice)
 {
 	//半角数字の正規表現
 	regex pattern("^[0-9]+$");
