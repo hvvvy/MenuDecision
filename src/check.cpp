@@ -20,3 +20,15 @@ bool CCheck::checkType(string schoice)
         return false;
     }
 }
+bool CCheck::checkEmpty()
+{
+	FILE *f = fopen("C:\\temp\\menu.txt", "r");
+
+	if(fscanf(f,"%c",&ch)==EOF)
+	{
+	    empty = true;
+	}
+	fclose(f);
+
+	return empty;
+}

@@ -10,7 +10,7 @@ public:
 	CFileReader();
 	void fileReader(std::vector<std::string>& menulist);
 	void exchangeMenulist(std::vector<std::string>& menulist);
-	std::string allMenuReader(std::string& allMenu);
+	std::string allMenuReader(std::string& allMenu,bool& fileExists);
 };
 
 

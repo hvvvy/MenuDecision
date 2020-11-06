@@ -24,13 +24,15 @@ int main()
 	vector<string> menulist;
 	string choice;
 	string menu;
-	bool judge = true;
+	string allMenu;
 	int iChoice;
 	int resltRand;
-	string allMenu;
 	int rbuf;
+	char yn;
+	bool judge = true;
+	bool fileExists;
 
-	cout << "料理を追加する場合は「1」を、抽選を開始する場合は「5」を、"
+	cout << "メニューを登録する場合は「1」を、抽選を開始する場合は「5」を、"
 			"現在登録されているメニューを確認する場合は「6」を入力してください。";
 
 	//読み込み処理
@@ -48,7 +50,30 @@ int main()
 			iChoice = stoi(choice);
 			//数字でその後の処理を選択
 			switch(iChoice){
+				//0が選択された場合
+				//ファイル削除処理
+				case 0:
+				{
+					cout << "本当にリセットしますか？\n(y/n)" << endl;
+					cin >> yn;
+					if(yn == 'y')
+					{
+						//menu.txtの削除
+						remove("C:\\temp\\menu.txt");
+						menulist.clear();
+						cout << "リセットしました。" << endl;
+					}else
+					{
+						cout << "キャンセルされました。" << endl;
+					}
+					cout <<"\n続けて登録する場合は「1」を、"
+							"抽選を開始する場合は「5」を、\n"
+							"現在登録されているメニューの一覧を確認する場合は「6」を、"
+							"アプリを終了する場合は「9」を入力してください。"<< endl;
+					break;
+				}
 				//1が選択された場合の処理
+				//登録処理
 				case 1:
 				{
 					cout << "料理を登録してください。";
@@ -57,10 +82,10 @@ int main()
 					if(!menu.empty())
 					{
 						//受け付けた料理をファイルに書き込む処理
-						fw.fileWriter(menu);
+						fw.fileWriter(menu,ck.checkEmpty());
 						//menulistを更新する
 						fr.exchangeMenulist(menulist);
-						cout <<"\n続けて追加する場合は「1」を、"
+						cout <<"\n続けて登録する場合は「1」を、"
 								"抽選を開始する場合は「5」を、\n"
 								"現在登録されているメニューの一覧を確認する場合は「6」を、"
 								"アプリを終了する場合は「9」を入力してください。"<< endl;
@@ -72,6 +97,7 @@ int main()
 				break;
 				}
 				//5が選択された場合の処理
+				//抽選処理
 				case 5:
 				{
 					//乱数の初期値を設定
@@ -92,16 +118,21 @@ int main()
 					break;
 				}
 				//6が選択された場合の処理
+				//一括表示処理
 				case 6:
 				{
-					cout << "メニューの一覧を表示します。" << endl;
-					cout << fr.allMenuReader(allMenu) << endl;
-					//メニューの総数を表示
-					cout << "現在登録されているメニューの総数は"<<menulist.size() << endl;
+					cout << fr.allMenuReader(allMenu,fileExists) << endl;
+					if(fileExists)
+					{
+						cout << "メニューの一覧を表示します。" << endl;
+						//メニューの総数を表示
+						cout << "現在登録されているメニューの総数は"<<menulist.size() << endl;
+					}
 
 					break;
 				}
 				//9が選択された場合の処理
+				//プログラムの終了処理
 				case 9:
 				{
 					cout << "アプリを終了します。" << endl;

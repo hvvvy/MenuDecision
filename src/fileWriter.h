@@ -3,8 +3,12 @@
 
 
 class CFileWriter{
+private:
+	const char *fileName;
 public:
-	void fileWriter(std::string menu);
+	CFileWriter();
+	void createDir();
+	void fileWriter(std::string menu,bool empty);
 };
 
 

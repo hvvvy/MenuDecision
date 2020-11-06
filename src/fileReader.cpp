@@ -23,7 +23,8 @@ void CFileReader::fileReader(vector<string>& menulist)
     		menulist.push_back(buf);
     	}
     }else{
-    	cout << "ファイルが開けませんでした。" << endl;
+		cout << "\nファイルが開けない、もしくは存在しません。"
+				"\nまだメニューを登録していない場合に表示されることがあります。" << endl;
     }
 
 }
@@ -48,7 +49,7 @@ void CFileReader::exchangeMenulist(std::vector<std::string>& menulist)
 	}
 }
 
-string CFileReader::allMenuReader(string& allMenu)
+string CFileReader::allMenuReader(string& allMenu,bool& fileExists)
 {
 	//呼び出すたびallMenuをリセット
 	allMenu = "";
@@ -60,8 +61,10 @@ string CFileReader::allMenuReader(string& allMenu)
 			getline(ifs, buf);
 			allMenu += (buf + "\n");
 		}
+		fileExists = true;
 	}else{
-		cout << "ファイルが開けませんでした。" << endl;
+		cout << "ファイルが存在しません。" << endl;
+		fileExists = false;
 	}
 	return allMenu;
 }
