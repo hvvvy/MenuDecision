@@ -27,6 +27,8 @@ bool CCheck::checkEmpty()
 	if(fscanf(f,"%c",&ch)==EOF)
 	{
 	    empty = true;
+	}else{
+		empty = false;
 	}
 	fclose(f);
 

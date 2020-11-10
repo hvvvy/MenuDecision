@@ -12,11 +12,6 @@ CFileWriter::CFileWriter()
 	fileName = "C:\\temp\\menu.txt";
 }
 
-void CFileWriter::createDir()
-{
-
-}
-
 void CFileWriter::fileWriter(string menu,bool empty)
 {
     ofstream ofs(fileName,ios::app);

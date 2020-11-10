@@ -22,15 +22,10 @@ int main()
 	CCheck ck;
 
 	vector<string> menulist;
-	string choice;
-	string menu;
-	string allMenu;
-	int iChoice;
-	int resltRand;
-	int rbuf;
+	string choice,menu,allMenu;
+	int iChoice,resltRand,rbuf;
 	char yn;
-	bool judge = true;
-	bool fileExists;
+	bool judge = true,fileExists = false;
 
 	cout << "メニューを登録する場合は「1」を、抽選を開始する場合は「5」を、"
 			"現在登録されているメニューを確認する場合は「6」を入力してください。";
