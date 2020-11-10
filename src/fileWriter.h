@@ -7,7 +7,7 @@ private:
 	const char *fileName;
 public:
 	CFileWriter();
-	void createDir();
+	//void createDir();
 	void fileWriter(std::string menu,bool empty);
 };
 
